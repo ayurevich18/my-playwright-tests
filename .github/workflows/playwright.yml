@@ -29,7 +29,7 @@ jobs:
         run: npx playwright install ${{ inputs.browser }} --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test  --project=${{ inputs.browser }}
+        run: npx playwright test --project=${{ inputs.browser }}
 
       - name: Copy report to unique folder
         run: |

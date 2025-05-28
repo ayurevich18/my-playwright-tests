@@ -14,7 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  expect: { timeout:30000 },
+  expect: { timeout: 30000 },
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -30,12 +30,15 @@ export default defineConfig({
     actionTimeout: 30000,
     navigationTimeout: 30000
   },
- 
+
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chrome',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome'
+      },
     },
 
     {
