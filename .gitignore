@@ -1,0 +1,17 @@
+# Node.js
+node_modules
+package-lock.json
+
+# TypeScript
+dist/
+*.tsbuildinfo
+
+# Playwright
+playwright-report/
+test-results/
+*.zip
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
