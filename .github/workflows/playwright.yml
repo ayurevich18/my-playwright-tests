@@ -16,6 +16,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     container:
       image: mcr.microsoft.com/playwright:v1.59.1-noble
       options: --init --ipc=host
