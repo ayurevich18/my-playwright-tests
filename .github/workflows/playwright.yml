@@ -21,9 +21,6 @@ jobs:
       options: --init --ipc=host
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
 
       - name: Install dependencies
         run: npm ci
@@ -42,20 +39,20 @@ jobs:
             test-results/
           retention-days: 30
 
-      - name: Copy report to unique folder
-        run: |
-          export REPORT_DIR=gh-pages/runs/${{ github.run_id }}
-          mkdir -p $REPORT_DIR
-          cp -r playwright-report/* $REPORT_DIR
-          echo "Report copied to $REPORT_DIR"
+      # - name: Copy report to unique folder
+      #   run: |
+      #     export REPORT_DIR=gh-pages/runs/${{ github.run_id }}
+      #     mkdir -p $REPORT_DIR
+      #     cp -r playwright-report/* $REPORT_DIR
+      #     echo "Report copied to $REPORT_DIR"
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.G_TOKEN }}
-          publish_dir: gh-pages
-          publish_branch: gh-pages
-          keep_files: true
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.G_TOKEN }}
+      #     publish_dir: gh-pages
+      #     publish_branch: gh-pages
+      #     keep_files: true
 
       - name: Add summary link
         run: |
